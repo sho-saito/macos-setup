@@ -18,11 +18,12 @@ jobs:
       - name: Generate tag
         id: tag
         run: |
-          TAG="$(date +'%Y%m%d%H%M')-${GITHUB_SHA::7}"
+          TAG="$(date -u +'%Y%m%d%H%MZ')-${GITHUB_SHA::7}"
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
       - name: Create release
         run: |
+          # Note: This step uses GitHub CLI (gh) which is pre-installed on ubuntu-latest runners
           TAG="${{ steps.tag.outputs.tag }}"
           if gh release view "$TAG" >/dev/null 2>&1; then
             echo "Release with tag '$TAG' already exists. Skipping release creation."
