@@ -1,0 +1,28 @@
+name: Auto Release
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate tag
+        id: tag
+        run: |
+          TAG=$(date +'%Y%m%d%H%M')
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+      - name: Create release
+        run: |
+          gh release create ${{ steps.tag.outputs.tag }} \
+            --title "Release ${{ steps.tag.outputs.tag }}" \
+            --generate-notes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
