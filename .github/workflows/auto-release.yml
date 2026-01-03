@@ -16,13 +16,18 @@ jobs:
       - name: Generate tag
         id: tag
         run: |
-          TAG=$(date +'%Y%m%d%H%M')
+          TAG="$(date +'%Y%m%d%H%M')-${GITHUB_SHA::7}"
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
       - name: Create release
         run: |
-          gh release create ${{ steps.tag.outputs.tag }} \
-            --title "Release ${{ steps.tag.outputs.tag }}" \
-            --generate-notes
+          TAG="${{ steps.tag.outputs.tag }}"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release with tag '$TAG' already exists. Skipping release creation."
+          else
+            gh release create "$TAG" \
+              --title "Release $TAG" \
+              --generate-notes
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
