@@ -1,0 +1,92 @@
+---
+- name: macOS Setup Playbook
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  
+  tasks:
+    - name: Install Homebrew
+      shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      args:
+        creates: /opt/homebrew/bin/brew
+      
+    - name: Install CLI tools
+      homebrew:
+        name: "{{ item }}"
+        state: present
+      loop: [dockutil, mas]
+        
+    - name: Install Microsoft Office apps from Mac App Store
+      shell: |
+        export PATH="/opt/homebrew/bin:$PATH"
+        mas install {{ item }}
+      become: yes
+      loop: [462054704, 462058435, 462062816, 1291898086]  # Word, Excel, PowerPoint, Toggl Track
+      
+    - name: Install applications via Homebrew
+      homebrew_cask:
+        name: "{{ item }}"
+        state: present
+      ignore_errors: yes
+      loop: [1password, kiro-cli, claude]
+        
+    - name: "Download and Install DMG applications"
+      shell: |
+        if [ -d "/Applications/{{ item.app_name }}" ]; then
+          echo "{{ item.app_name }} already installed, skipping"
+          exit 0
+        fi
+        cd /tmp
+        curl -L -o "{{ item.name }}.dmg" "{{ item.url }}"
+        hdiutil attach "{{ item.name }}.dmg" -quiet -nobrowse
+        VOLUME=$(ls /Volumes/ | grep -i "{{ item.name | regex_replace(' ', '.*') }}" | head -1)
+        cp -R "/Volumes/$VOLUME/{{ item.app_name }}" /Applications/
+        hdiutil detach "/Volumes/$VOLUME" -quiet
+      loop:
+        - {name: "Vivaldi", url: "https://downloads.vivaldi.com/stable/Vivaldi.dmg", app_name: "Vivaldi.app"}
+        - {name: "Google Chrome", url: "https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg", app_name: "Google Chrome.app"}
+        - {name: "Discord", url: "https://discord.com/api/download?platform=osx", app_name: "Discord.app"}
+        - {name: "ChatGPT", url: "https://persistent.oaistatic.com/sidekick/public/ChatGPT_Desktop_public_latest.dmg", app_name: "ChatGPT.app"}
+        - {name: "Notion", url: "https://www.notion.so/desktop/mac-universal/download", app_name: "Notion.app"}
+        - {name: "Notion Calendar", url: "https://www.notion.so/calendar/desktop/mac/download", app_name: "Notion Calendar.app"}
+        - {name: "Firefox", url: "https://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US", app_name: "Firefox.app"}
+        - {name: "Docker", url: "https://desktop.docker.com/mac/main/arm64/Docker.dmg", app_name: "Docker.app"}
+        - {name: "DeepL", url: "https://www.deepl.com/en/macos/download/DeepL.dmg", app_name: "DeepL.app"}
+        
+    - name: "Download and Install ZIP applications"
+      shell: |
+        if [ -d "/Applications/{{ item.app_name }}" ]; then
+          echo "{{ item.app_name }} already installed, skipping"
+          exit 0
+        fi
+        cd /tmp
+        curl -L -o "{{ item.name }}.zip" "{{ item.url }}"
+        unzip -o "{{ item.name }}.zip"
+        cp -R "{{ item.app_name }}" /Applications/
+        {% if item.open is defined %}open "/Applications/{{ item.app_name }}"{% endif %}
+      loop:
+        - {name: "VSCode", url: "https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal", app_name: "Visual Studio Code.app"}
+        - {name: "Setapp", url: "https://go.setapp.com/download/client", app_name: "Install Setapp.app", open: true}
+        
+    - name: Clear existing dock items
+      shell: dockutil --remove all --no-restart
+      ignore_errors: yes
+      
+    - name: Add applications to dock
+      shell: "dockutil --add \"{{ item.path }}\" {{ item.options | default('') }} --no-restart"
+      ignore_errors: yes
+      loop:
+        - {path: "/Applications/Vivaldi.app", options: "--position 2"}
+        - {path: "/Applications/1Password.app", options: "--position 3"}
+        - {path: "/Applications/Visual Studio Code.app", options: "--position 4"}
+        - {path: "/Applications/Claude.app", options: "--position 5"}
+        - {path: "/Applications/Notion.app", options: "--position 6"}
+        - {path: "/Applications/Notion Calendar.app", options: "--position 7"}
+        - {path: "/Applications/Toggl Track.app", options: "--position 8"}
+        - {path: "/Applications/Firefox.app", options: "--position 9"}
+        - {path: "/Applications", options: "--view grid --display folder --sort name --position 10"}
+        - {path: "/System/Applications/Apps.app", options: "--position 11"}
+        - {path: "/System/Applications/System Settings.app", options: "--position 12"}
+        
+    - name: Restart dock
+      shell: killall Dock
