@@ -90,7 +90,13 @@
         
     - name: Import BetterTouchTool preset
       shell: |
-        osascript -e 'tell application "BetterTouchTool" to import_preset "{{ playbook_dir }}/configs/bettertouchtool/keyboardshortcuts.bttpreset"'
+        if [ ! -d "/Applications/BetterTouchTool.app" ]; then
+          echo "BetterTouchTool not installed, skipping preset import"
+          exit 0
+        fi
+
+        preset_path="{{ playbook_dir }}/configs/bettertouchtool/keyboardshortcuts.bttpreset"
+        open "btt://import?path=$preset_path"
       tags: btt
         
     - name: Restart dock
