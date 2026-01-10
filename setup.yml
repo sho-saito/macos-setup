@@ -88,15 +88,15 @@
         - {path: "/System/Applications/Apps.app", options: "--position 11"}
         - {path: "/System/Applications/System Settings.app", options: "--position 12"}
         
-    - name: Import BetterTouchTool preset
-      shell: |
-        if [ ! -d "/Applications/BetterTouchTool.app" ]; then
-          echo "BetterTouchTool not installed, skipping preset import"
-          exit 0
-        fi
+    - name: Check if BetterTouchTool is installed
+      stat:
+        path: /Applications/BetterTouchTool.app
+      register: btt_app
+      tags: btt
 
-        preset_path="{{ playbook_dir }}/configs/bettertouchtool/keyboardshortcuts.bttpreset"
-        open "btt://import?path=$preset_path"
+    - name: Import BetterTouchTool preset
+      shell: open "btt://import?path={{ playbook_dir }}/configs/bettertouchtool/keyboardshortcuts.bttpreset"
+      when: btt_app.stat.exists
       tags: btt
         
     - name: Restart dock
