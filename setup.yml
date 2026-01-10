@@ -119,5 +119,6 @@
       shell: open "btt://import?path={{ playbook_dir }}/configs/bettertouchtool/keyboardshortcuts.bttpreset"
       when: btt_app.stat.exists
       tags: btt
+
     - name: Restart dock
       shell: killall Dock
