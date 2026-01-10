@@ -129,7 +129,7 @@ Homebrewインストールを公式にサポートしているアプリケーシ
 
 ## BetterTouchTool設定
 
-効率的なウィンドウ管理のための「Window Management Shortcuts」プリセットを自動的にインポートします。詳細なショートカットと設定については [configs/bettertouchtool/README.md](configs/bettertouchtool/README.md) を参照してください。
+効率的なウィンドウ管理のための「Window Management Shortcuts」プリセットを自動的にインポートします。詳細なショートカットと設定については [configs/bettertouchtool/README.ja.md](configs/bettertouchtool/README.ja.md) を参照してください。
 
 ## ファイル構成
 
