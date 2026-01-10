@@ -67,6 +67,10 @@ ansible-playbook setup.yml --ask-become-pass
 - **Visual Studio Code**, **Setapp** - via ZIP download
 
 ### Configuration Files
+
+> [!NOTE]
+> To apply the preset below, you must have BetterTouchTool pre-installed (this playbook does not install BetterTouchTool itself).
+
 - **BetterTouchTool** - Keyboard shortcuts preset for window management
 
 ## Installation Methods

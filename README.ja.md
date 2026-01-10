@@ -71,6 +71,10 @@ ansible-playbook setup.yml --ask-become-pass
 - **Visual Studio Code**, **Setapp** - ZIPダウンロード経由
 
 ### 設定ファイル
+
+> [!NOTE]
+> 以下のプリセットを適用するには、BetterTouchTool 本体を事前にインストールしておく必要があります（本プレイブックでは BetterTouchTool のインストールは行いません）。
+
 - **BetterTouchTool** - ウィンドウ管理用キーボードショートカットプリセット
 
 ## インストール方法
