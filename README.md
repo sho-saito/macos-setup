@@ -136,7 +136,8 @@ macos-setup/
 ├── configs/                                    # Configuration files
 │   └── bettertouchtool/                        # BetterTouchTool presets
 │       ├── keyboardshortcuts.bttpreset         # Window management shortcuts
-│       └── README.md                           # BetterTouchTool config details
+│       ├── README.md                           # BetterTouchTool config details (English)
+│       └── README.ja.md                        # BetterTouchTool config details (Japanese)
 ├── README.md                                   # This file (English)
 ├── README.ja.md                                # Japanese README
 └── .gitignore                                  # Git exclusion settings
