@@ -96,6 +96,7 @@
 
     - name: Activate BetterTouchTool
       shell: open -a "BetterTouchTool"
+      changed_when: false
       when: btt_app.stat.exists
       tags: btt
 
