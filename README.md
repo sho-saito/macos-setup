@@ -131,7 +131,8 @@ macos-setup/
 ├── setup.yml                                   # Ansible playbook (main)
 ├── configs/                                    # Configuration files
 │   └── bettertouchtool/                        # BetterTouchTool presets
-│       └── keyboardshortcuts.bttpreset         # Window management shortcuts
+│       ├── keyboardshortcuts.bttpreset         # Window management shortcuts
+│       └── README.md                           # BetterTouchTool config details
 ├── README.md                                   # This file (English)
 ├── README.ja.md                                # Japanese README
 └── .gitignore                                  # Git exclusion settings
