@@ -106,6 +106,7 @@
       until: btt_process_check.rc == 0
       retries: 30
       delay: 1
+      changed_when: false
       when: btt_app.stat.exists
       tags: btt
 
