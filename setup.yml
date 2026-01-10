@@ -99,6 +99,21 @@
       when: btt_app.stat.exists
       tags: btt
 
+    - name: Wait for BetterTouchTool to be fully launched
+      shell: pgrep -x "BetterTouchTool"
+      register: btt_process_check
+      until: btt_process_check.rc == 0
+      retries: 30
+      delay: 1
+      when: btt_app.stat.exists
+      tags: btt
+
+    - name: Allow BetterTouchTool additional time to initialize
+      pause:
+        seconds: 2
+      when: btt_app.stat.exists
+      tags: btt
+
     - name: Import BetterTouchTool preset
       shell: open "btt://import?path={{ playbook_dir }}/configs/bettertouchtool/keyboardshortcuts.bttpreset"
       when: btt_app.stat.exists
