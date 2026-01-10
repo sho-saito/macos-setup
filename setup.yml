@@ -94,6 +94,11 @@
       register: btt_app
       tags: btt
 
+    - name: Activate BetterTouchTool
+      shell: open -a "BetterTouchTool"
+      when: btt_app.stat.exists
+      tags: btt
+
     - name: Import BetterTouchTool preset
       shell: open "btt://import?path={{ playbook_dir }}/configs/bettertouchtool/keyboardshortcuts.bttpreset"
       when: btt_app.stat.exists
