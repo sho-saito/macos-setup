@@ -21,14 +21,14 @@ A comprehensive keyboard shortcuts preset named "Window Management Shortcuts" th
   - `Cmd + Ctrl + ↑`: Maximize window
 
 - **One-Third Width Positioning**
-  - `Cmd + Option + →`: Position to right third of screen
+  - `Ctrl + Option + →`: Position to right third of screen
 
 #### Multi-Monitor Support
-- `Cmd + Ctrl + Shift + Option + →`: Move window to next monitor
+- `Cmd + Ctrl + Option + →`: Move window to next monitor
 
 #### Desktop Space Navigation
-- `Cmd + Ctrl + Option + ←`: Move to left space
-- `Cmd + Ctrl + Option + →`: Move to right space
+- `Cmd + Option + Shift + ←`: Move to left space
+- `Cmd + Option + Shift + →`: Move to right space
 
 ## Installation
 

@@ -21,14 +21,14 @@
   - `Cmd + Ctrl + ↑`: ウィンドウを最大化
 
 - **画面3分の1幅配置**
-  - `Cmd + Option + →`: 右端に画面幅の3分の1で配置
+  - `Ctrl + Option + →`: 右端に画面幅の3分の1で配置
 
 #### マルチモニターサポート
-- `Cmd + Ctrl + Shift + Option + →`: ウィンドウを次のモニターに移動
+- `Cmd + Ctrl + Option + →`: ウィンドウを次のモニターに移動
 
 #### デスクトップスペースナビゲーション
-- `Cmd + Ctrl + Option + ←`: 左のスペースに移動
-- `Cmd + Ctrl + Option + →`: 右のスペースに移動
+- `Cmd + Option + Shift + ←`: 左のスペースに移動
+- `Cmd + Option + Shift + →`: 右のスペースに移動
 
 ## インストール
 
