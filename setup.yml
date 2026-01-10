@@ -90,7 +90,7 @@
         
     - name: Check if BetterTouchTool is installed
       stat:
-        path: /Applications/BetterTouchTool.app
+        path: /Applications/Setapp/BetterTouchTool.app
       register: btt_app
       tags: btt
 
