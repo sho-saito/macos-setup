@@ -99,6 +99,22 @@
       when: btt_app.stat.exists
       tags: btt
 
+    - name: Wait for BetterTouchTool to be fully launched
+      shell: |
+        for i in {1..30}; do
+          if pgrep -x "BetterTouchTool" > /dev/null; then
+            echo "BetterTouchTool is running"
+            sleep 2
+            exit 0
+          fi
+          echo "Waiting for BetterTouchTool to launch... (attempt $i/30)"
+          sleep 1
+        done
+        echo "BetterTouchTool failed to launch within 30 seconds"
+        exit 1
+      when: btt_app.stat.exists
+      tags: btt
+
     - name: Import BetterTouchTool preset
       shell: open "btt://import?path={{ playbook_dir }}/configs/bettertouchtool/keyboardshortcuts.bttpreset"
       when: btt_app.stat.exists
