@@ -6,7 +6,7 @@ This directory contains BetterTouchTool presets for efficient window management 
 
 ### keyboardshortcuts.bttpreset
 
-A comprehensive keyboard shortcuts preset that provides:
+A comprehensive keyboard shortcuts preset named "Window Management Shortcuts" that provides:
 
 #### Window Management
 - **Quarter Screen Positioning**
@@ -29,9 +29,6 @@ A comprehensive keyboard shortcuts preset that provides:
 #### Desktop Space Navigation
 - `Cmd + Ctrl + Option + ←`: Move to left space
 - `Cmd + Ctrl + Option + →`: Move to right space
-
-#### Quick Access
-- `Cmd + V`: Show context menu
 
 ## Installation
 
