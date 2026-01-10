@@ -20,8 +20,8 @@ A comprehensive keyboard shortcuts preset named "Window Management Shortcuts" th
   - `Cmd + Ctrl + →`: Right half
   - `Cmd + Ctrl + ↑`: Maximize window
 
-- **One-Third Width Positioning (画面3分の1幅配置)**
-  - `Cmd + Option + →`: Position to right third of screen (右端に画面幅の3分の1で配置)
+- **One-Third Width Positioning**
+  - `Cmd + Option + →`: Position to right third of screen
 
 #### Multi-Monitor Support
 - `Cmd + Ctrl + Shift + Option + →`: Move window to next monitor
