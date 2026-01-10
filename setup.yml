@@ -88,5 +88,10 @@
         - {path: "/System/Applications/Apps.app", options: "--position 11"}
         - {path: "/System/Applications/System Settings.app", options: "--position 12"}
         
+    - name: Import BetterTouchTool preset
+      shell: |
+        osascript -e 'tell application "BetterTouchTool" to import_preset "{{ playbook_dir }}/configs/bettertouchtool/keyboardshortcuts.bttpreset"'
+      tags: btt
+        
     - name: Restart dock
       shell: killall Dock

@@ -66,6 +66,9 @@ ansible-playbook setup.yml --ask-become-pass
 - **Vivaldi**, **Google Chrome**, **Firefox**, **Discord**, **ChatGPT**, **Notion**, **Notion Calendar**, **Docker**, **DeepL** - via DMG download
 - **Visual Studio Code**, **Setapp** - via ZIP download
 
+### Configuration Files
+- **BetterTouchTool** - Keyboard shortcuts preset for window management
+
 ## Installation Methods
 
 Different installation methods are used as needed:
@@ -116,15 +119,22 @@ Automatically configures the Dock in this order:
 11. Apps
 12. System Settings
 
+## BetterTouchTool Configuration
+
+Automatically imports keyboard shortcuts preset for efficient window management. See [configs/bettertouchtool/README.md](configs/bettertouchtool/README.md) for detailed shortcuts and configuration.
+
 ## File Structure
 
 ```
 macos-setup/
-├── setup.sh           # Automated setup script
-├── setup.yml          # Ansible playbook (main)
-├── README.md           # This file (English)
-├── README.ja.md        # Japanese README
-└── .gitignore         # Git exclusion settings
+├── setup.sh                                    # Automated setup script
+├── setup.yml                                   # Ansible playbook (main)
+├── configs/                                    # Configuration files
+│   └── bettertouchtool/                        # BetterTouchTool presets
+│       └── keyboardshortcuts.bttpreset         # Window management shortcuts
+├── README.md                                   # This file (English)
+├── README.ja.md                                # Japanese README
+└── .gitignore                                  # Git exclusion settings
 ```
 
 ## Customization
