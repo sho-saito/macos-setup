@@ -70,6 +70,13 @@ ansible-playbook setup.yml --ask-become-pass
 - **Vivaldi**, **Google Chrome**, **Firefox**, **Discord**, **ChatGPT**, **Notion**, **Notion Calendar**, **Docker**, **DeepL** - DMGダウンロード経由
 - **Visual Studio Code**, **Setapp** - ZIPダウンロード経由
 
+### 設定ファイル
+
+> [!NOTE]
+> 以下のプリセットを適用するには、BetterTouchTool 本体を事前にインストールしておく必要があります（本プレイブックでは BetterTouchTool のインストールは行いません）。
+
+- **BetterTouchTool** - ウィンドウ管理用キーボードショートカットプリセット
+
 ## インストール方法
 
 必要に応じて異なるインストール方法でアプリのインストールをしています。
@@ -120,15 +127,24 @@ Homebrewインストールを公式にサポートしているアプリケーシ
 11. Apps
 12. System Settings
 
+## BetterTouchTool設定
+
+効率的なウィンドウ管理のための「Window Management Shortcuts」プリセットを自動的にインポートします。詳細なショートカットと設定については [configs/bettertouchtool/README.ja.md](configs/bettertouchtool/README.ja.md) を参照してください。
+
 ## ファイル構成
 
 ```
 macos-setup/
-├── setup.sh           # 自動セットアップスクリプト
-├── setup.yml          # Ansibleプレイブック（メイン）
-├── README.md           # 英語版README
-├── README.ja.md        # このファイル（日本語版）
-└── .gitignore         # Git除外設定
+├── setup.sh                                    # 自動セットアップスクリプト
+├── setup.yml                                   # Ansibleプレイブック（メイン）
+├── configs/                                    # 設定ファイル
+│   └── bettertouchtool/                        # BetterTouchToolプリセット
+│       ├── keyboardshortcuts.bttpreset         # ウィンドウ管理ショートカット
+│       ├── README.md                           # BetterTouchTool設定の詳細README（英語）
+│       └── README.ja.md                        # BetterTouchTool設定の詳細README（日本語）
+├── README.md                                   # 英語版README
+├── README.ja.md                                # このファイル（日本語版）
+└── .gitignore                                  # Git除外設定
 ```
 
 ## カスタマイズ

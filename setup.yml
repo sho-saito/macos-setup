@@ -88,5 +88,38 @@
         - {path: "/System/Applications/Apps.app", options: "--position 11"}
         - {path: "/System/Applications/System Settings.app", options: "--position 12"}
         
+    - name: Check if BetterTouchTool is installed
+      stat:
+        path: /Applications/Setapp/BetterTouchTool.app
+      register: btt_app
+      tags: btt
+
+    - name: Activate BetterTouchTool
+      shell: open -a "BetterTouchTool"
+      changed_when: false
+      when: btt_app.stat.exists
+      tags: btt
+
+    - name: Wait for BetterTouchTool to be fully launched
+      shell: pgrep -x "BetterTouchTool"
+      register: btt_process_check
+      until: btt_process_check.rc == 0
+      retries: 30
+      delay: 1
+      changed_when: false
+      when: btt_app.stat.exists
+      tags: btt
+
+    - name: Allow BetterTouchTool additional time to initialize
+      pause:
+        seconds: 2
+      when: btt_app.stat.exists
+      tags: btt
+
+    - name: Import BetterTouchTool preset
+      shell: open "btt://import?path={{ playbook_dir | urlencode }}/configs/bettertouchtool/keyboardshortcuts.bttpreset"
+      when: btt_app.stat.exists
+      tags: btt
+
     - name: Restart dock
       shell: killall Dock
