@@ -16,6 +16,7 @@
           - dockutil
           - mas
           - node
+          - gh
         state: present
         
     - name: Install Microsoft Office apps from Mac App Store
