@@ -27,10 +27,12 @@
       
     - name: Install applications via Homebrew
       community.general.homebrew_cask:
-        name: "{{ item }}"
+        name:
+          - 1password
+          - kiro-cli
+          - claude
         state: present
       ignore_errors: yes
-      loop: [1password, kiro-cli, claude]
         
     - name: "Download and Install DMG applications"
       shell: |
