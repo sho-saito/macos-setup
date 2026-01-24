@@ -26,5 +26,5 @@ jobs:
       - name: Syntax check
         run: ansible-playbook setup.yml --syntax-check
       
-      - name: Run CI tests (dry-run)
+      - name: Run CI tests
         run: ansible-playbook setup.yml --tags ci_test -vv
