@@ -67,7 +67,7 @@ ansible-playbook setup.yml --ask-become-pass
 - **dockutil**, **mas**, **node**, **gh** - Dock management, Mac App Store CLI, Node.js, and GitHub CLI
 
 ### Applications
-- **Microsoft Office** (Word, Excel, PowerPoint) + **Toggl Track** + **Slack** - via Mac App Store
+- **Microsoft Office** (Word, Excel, PowerPoint), **Toggl Track**, **Slack** - via Mac App Store
 - **1Password**, **Kiro CLI**, **Claude Desktop** - via Homebrew Cask
 - **Vivaldi**, **Google Chrome**, **Firefox**, **Discord**, **ChatGPT**, **Notion**, **Notion Calendar**, **Docker**, **DeepL** - via DMG download
 - **Visual Studio Code**, **Setapp** - via ZIP download
@@ -93,7 +93,7 @@ Essential command-line utilities:
 
 Applications installed through the App Store:
 
-- Microsoft Office suite, Toggl Track, Slack
+- Microsoft Office suite (Word, Excel, PowerPoint), Toggl Track, Slack
 
 ### 3. Homebrew Cask (Official Support Confirmed)
 

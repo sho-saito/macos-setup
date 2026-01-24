@@ -91,7 +91,7 @@ ansible-playbook setup.yml --ask-become-pass
 
 必須のコマンドラインユーティリティ：
 
-- dockutil、mas、node
+- dockutil、mas、node、gh
 
 ### 2. Mac App Store
 
