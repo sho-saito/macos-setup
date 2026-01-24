@@ -26,6 +26,10 @@ else
     echo "✅ Ansible already installed"
 fi
 
+# Install Ansible collections
+echo "📚 Installing Ansible collections..."
+ansible-galaxy collection install community.general
+
 # Run the playbook
 echo "🎯 Running macOS setup playbook..."
 ansible-playbook setup.yml --ask-become-pass -vv
