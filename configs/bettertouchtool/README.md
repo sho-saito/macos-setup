@@ -32,7 +32,7 @@ A comprehensive keyboard shortcuts preset named "Window Management Shortcuts" th
 
 ## Installation
 
-The preset is automatically imported during the main setup process. To manually import:
+The preset is automatically imported during the main setup process **only when** BetterTouchTool is installed at `/Applications/Setapp/BetterTouchTool.app` (Setapp install). To manually import:
 
 1. Open BetterTouchTool
 2. Go to Presets tab
@@ -52,3 +52,9 @@ You can modify the shortcuts by:
 The preset also includes two snap areas for drag-and-drop window positioning:
 - **Top area**: Snaps windows to upper half of screen
 - **Bottom area**: Snaps windows to lower half of screen
+
+## Tagged Run
+
+If you only want to import the preset, run the playbook with:
+
+- `ansible-playbook setup.yml --tags btt`
