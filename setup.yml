@@ -26,7 +26,7 @@
       loop: [462054704, 462058435, 462062816, 1291898086]  # Word, Excel, PowerPoint, Toggl Track
       
     - name: Install applications via Homebrew
-      homebrew_cask:
+      community.general.homebrew_cask:
         name: "{{ item }}"
         state: present
       ignore_errors: yes
