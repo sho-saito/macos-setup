@@ -1,6 +1,7 @@
 # macOS Setup Automation
 
-A personal macOS setup automation that I created for my own use. Sharing it in case it's useful for others who want a simple, single-file solution for setting up a new Mac.
+A personal macOS setup automation that I created for my own use.
+Sharing it in case it's useful for others who want a simple, single-file solution for setting up a new Mac.
 
 > [!NOTE]
 > If you find any inappropriate content or issues, please feel free to let me know.
@@ -9,7 +10,8 @@ A personal macOS setup automation that I created for my own use. Sharing it in c
 
 ## What This Does
 
-This repository automates the installation of applications and Dock configuration for new macOS machines. You can complete the entire setup with a single ansible-playbook command execution. To keep things simple and avoid external dependencies, everything is contained in a single `setup.yml` file that uses officially documented installation methods.
+This repository automates the installation of applications and Dock configuration for new macOS machines.
+To keep things simple and avoid external dependencies, everything is contained in a single `setup.yml` file that uses officially documented installation methods.
 
 > [!IMPORTANT]
 > This playbook is optimized for my personal environment and workflow. Use at your own risk. Please review the contents before running and customize as needed.
@@ -64,9 +66,11 @@ ansible-playbook setup.yml --ask-become-pass
 ## What Gets Installed
 
 ### CLI Tools
+
 - **dockutil**, **mas**, **node**, **gh** - Dock management, Mac App Store CLI, Node.js, and GitHub CLI
 
 ### Applications
+
 - **Microsoft Office** (Word, Excel, PowerPoint) + **Toggl Track** + **Slack** - via Mac App Store
 - **1Password**, **Kiro CLI**, **Claude Desktop** - via Homebrew Cask
 - **Vivaldi**, **Google Chrome**, **Firefox**, **Discord**, **ChatGPT**, **Notion**, **Notion Calendar**, **Docker**, **DeepL** - via DMG download
@@ -171,6 +175,5 @@ When adding new applications, follow this decision process:
 
 ---
 
-**Note**: This automation installs applications that I personally use. You should review and modify the application list to match your own preferences before running.
-
-**Disclaimer**: This playbook was created for my personal use and is not guaranteed to work in all environments. The author assumes no responsibility for any issues that may arise from its use. Use at your own risk.
+**Disclaimer**: This playbook was created for my personal use and is not guaranteed to work in all environments.
+The author assumes no responsibility for any issues that may arise from its use. Use at your own risk.

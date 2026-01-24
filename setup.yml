@@ -21,7 +21,7 @@
         state: present
       tags: ci_test
         
-    - name: Install Microsoft Office apps from Mac App Store
+    - name: Install Mac App Store applications
       shell: |
         export PATH="/opt/homebrew/bin:$PATH"
         mas install {{ item }}
