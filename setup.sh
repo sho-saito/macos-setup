@@ -28,7 +28,7 @@ fi
 
 # Install Ansible collections
 echo "📚 Installing Ansible collections..."
-ansible-galaxy collection install community.general
+ansible-galaxy collection install --upgrade community.general
 
 # Run the playbook
 echo "🎯 Running macOS setup playbook..."
