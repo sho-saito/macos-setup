@@ -1,0 +1,23 @@
+name: CI Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Display macOS version
+        run: sw_vers
+      
+      - name: Install Ansible
+        run: pip3 install ansible
+      
+      - name: Syntax check
+        run: ansible-playbook setup.yml --syntax-check
+      
+      - name: Run CI tests (dry-run)
+        run: ansible-playbook setup.yml --tags ci_test --check
