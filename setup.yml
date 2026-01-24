@@ -25,7 +25,7 @@
         export PATH="/opt/homebrew/bin:$PATH"
         mas install {{ item }}
       become: yes
-      loop: [462054704, 462058435, 462062816, 1291898086]  # Word, Excel, PowerPoint, Toggl Track
+      loop: [462054704, 462058435, 462062816, 1291898086, 803453959]  # Word, Excel, PowerPoint, Toggl Track, Slack
       
     - name: Install applications via Homebrew
       community.general.homebrew_cask:
