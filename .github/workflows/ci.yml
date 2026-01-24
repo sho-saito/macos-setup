@@ -16,7 +16,7 @@ jobs:
         run: brew install ansible
       
       - name: Install Ansible community.general collection
-        run: ansible-galaxy collection install community.general
+        run: ansible-galaxy collection install community.general --upgrade
       
       - name: Syntax check
         run: ansible-playbook setup.yml --syntax-check
