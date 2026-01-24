@@ -39,14 +39,20 @@ cd macos-setup
 brew install ansible
 ```
 
-### 3. Clone this repository
+### 3. Install Ansible collections
+
+```bash
+ansible-galaxy collection install --upgrade community.general
+```
+
+### 4. Clone this repository
 
 ```bash
 git clone https://github.com/sho-saito/macos-setup.git
 cd macos-setup
 ```
 
-### 4. Run setup
+### 5. Run setup
 
 ```bash
 ansible-playbook setup.yml --ask-become-pass
@@ -58,7 +64,7 @@ ansible-playbook setup.yml --ask-become-pass
 ## What Gets Installed
 
 ### CLI Tools
-- **dockutil**, **mas** - Dock management and Mac App Store CLI
+- **dockutil**, **mas**, **node** - Dock management, Mac App Store CLI, and Node.js
 
 ### Applications
 - **Microsoft Office** (Word, Excel, PowerPoint) + **Toggl Track** - via Mac App Store
@@ -69,7 +75,7 @@ ansible-playbook setup.yml --ask-become-pass
 ### Configuration Files
 
 > [!NOTE]
-> To apply the preset below, you must have BetterTouchTool pre-installed (this playbook does not install BetterTouchTool itself).
+> The preset is imported only when BetterTouchTool is detected at `/Applications/Setapp/BetterTouchTool.app` (Setapp install). The playbook does not install BetterTouchTool itself.
 
 - **BetterTouchTool** - Keyboard shortcuts preset for window management
 
@@ -81,7 +87,7 @@ Different installation methods are used as needed:
 
 Essential command-line utilities:
 
-- dockutil, mas
+- dockutil, mas, node
 
 ### 2. Mac App Store
 
@@ -125,12 +131,13 @@ Automatically configures the Dock in this order:
 
 ## BetterTouchTool Configuration
 
-Automatically imports keyboard shortcuts preset for efficient window management. See [configs/bettertouchtool/README.md](configs/bettertouchtool/README.md) for detailed shortcuts and configuration.
+Automatically imports a keyboard shortcuts preset for efficient window management **only when BetterTouchTool is already installed**. See [configs/bettertouchtool/README.md](configs/bettertouchtool/README.md) for detailed shortcuts and configuration.
 
 ## File Structure
 
 ```
 macos-setup/
+├── .github/workflows/ci.yml                    # GitHub Actions CI workflow
 ├── setup.sh                                    # Automated setup script
 ├── setup.yml                                   # Ansible playbook (main)
 ├── configs/                                    # Configuration files
@@ -142,6 +149,11 @@ macos-setup/
 ├── README.ja.md                                # Japanese README
 └── .gitignore                                  # Git exclusion settings
 ```
+
+## Tags
+
+- `ci_test`: Installs CI-safe dependencies and apps (used by GitHub Actions).
+- `btt`: Runs BetterTouchTool preset import steps only.
 
 ## Customization
 

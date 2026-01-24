@@ -9,6 +9,7 @@
       shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       args:
         creates: /opt/homebrew/bin/brew
+      tags: ci_test
       
     - name: Install CLI tools
       community.general.homebrew:
@@ -18,6 +19,7 @@
           - node
           - gh
         state: present
+      tags: ci_test
         
     - name: Install Microsoft Office apps from Mac App Store
       shell: |
@@ -34,6 +36,7 @@
           - claude
         state: present
       ignore_errors: yes
+      tags: ci_test
         
     - name: "Download and Install DMG applications"
       shell: |
@@ -57,6 +60,7 @@
         - {name: "Firefox", url: "https://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US", app_name: "Firefox.app"}
         - {name: "Docker", url: "https://desktop.docker.com/mac/main/arm64/Docker.dmg", app_name: "Docker.app"}
         - {name: "DeepL", url: "https://www.deepl.com/en/macos/download/DeepL.dmg", app_name: "DeepL.app"}
+      tags: ci_test
         
     - name: "Download and Install ZIP applications"
       shell: |
@@ -72,6 +76,7 @@
       loop:
         - {name: "VSCode", url: "https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal", app_name: "Visual Studio Code.app"}
         - {name: "Setapp", url: "https://go.setapp.com/download/client", app_name: "Install Setapp.app", open: true}
+      tags: ci_test
         
     - name: Clear existing dock items
       shell: dockutil --remove all --no-restart

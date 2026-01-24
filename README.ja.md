@@ -41,14 +41,20 @@ cd macos-setup
 brew install ansible
 ```
 
-### 3. このリポジトリをクローン
+### 3. Ansible コレクションのインストール
+
+```bash
+ansible-galaxy collection install --upgrade community.general
+```
+
+### 4. このリポジトリをクローン
 
 ```bash
 git clone https://github.com/sho-saito/macos-setup.git
 cd macos-setup
 ```
 
-### 4. セットアップ実行
+### 5. セットアップ実行
 
 ```bash
 ansible-playbook setup.yml --ask-become-pass
@@ -61,7 +67,7 @@ ansible-playbook setup.yml --ask-become-pass
 
 ### CLIツール
 
-- **dockutil**, **mas** - Dock管理とMac App Store CLI
+- **dockutil**, **mas**, **node** - Dock管理、Mac App Store CLI、Node.js
 
 ### アプリケーション
 
@@ -73,7 +79,7 @@ ansible-playbook setup.yml --ask-become-pass
 ### 設定ファイル
 
 > [!NOTE]
-> 以下のプリセットを適用するには、BetterTouchTool 本体を事前にインストールしておく必要があります（本プレイブックでは BetterTouchTool のインストールは行いません）。
+> プリセットの自動インポートは、`/Applications/Setapp/BetterTouchTool.app`（Setapp経由）に BetterTouchTool が存在する場合のみ実行されます。本プレイブックでは BetterTouchTool のインストールは行いません。
 
 - **BetterTouchTool** - ウィンドウ管理用キーボードショートカットプリセット
 
@@ -85,7 +91,7 @@ ansible-playbook setup.yml --ask-become-pass
 
 必須のコマンドラインユーティリティ：
 
-- dockutil、mas
+- dockutil、mas、node
 
 ### 2. Mac App Store
 
@@ -129,12 +135,13 @@ Homebrewインストールを公式にサポートしているアプリケーシ
 
 ## BetterTouchTool設定
 
-効率的なウィンドウ管理のための「Window Management Shortcuts」プリセットを自動的にインポートします。詳細なショートカットと設定については [configs/bettertouchtool/README.ja.md](configs/bettertouchtool/README.ja.md) を参照してください。
+効率的なウィンドウ管理のための「Window Management Shortcuts」プリセットを、**BetterTouchTool が既にインストールされている場合のみ**自動インポートします。詳細なショートカットと設定については [configs/bettertouchtool/README.ja.md](configs/bettertouchtool/README.ja.md) を参照してください。
 
 ## ファイル構成
 
 ```
 macos-setup/
+├── .github/workflows/ci.yml                    # GitHub Actions CIワークフロー
 ├── setup.sh                                    # 自動セットアップスクリプト
 ├── setup.yml                                   # Ansibleプレイブック（メイン）
 ├── configs/                                    # 設定ファイル
@@ -146,6 +153,11 @@ macos-setup/
 ├── README.ja.md                                # このファイル（日本語版）
 └── .gitignore                                  # Git除外設定
 ```
+
+## タグ
+
+- `ci_test`: CI用の依存関係とアプリのインストールを実行（GitHub Actionsで使用）。
+- `btt`: BetterTouchTool のプリセットインポートのみ実行。
 
 ## カスタマイズ
 
