@@ -93,7 +93,7 @@ Essential command-line utilities:
 
 Applications installed through the App Store:
 
-- Microsoft Office suite (Word, Excel, PowerPoint), Toggl Track, Slack
+- Microsoft Office suite, Toggl Track, Slack
 
 ### 3. Homebrew Cask (Official Support Confirmed)
 
