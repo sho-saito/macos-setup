@@ -11,22 +11,23 @@ concurrency:
 jobs:
   test:
     if: github.event.pull_request.draft == false
-    runs-on: macos-latest
+    # Use macOS 26 Tahoe environment, but this is public preview as of January 2026.
+    runs-on: macos-26
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Display macOS version
         run: sw_vers
-      
+
       - name: Install Ansible
         run: brew install ansible
-      
+
       - name: Install Ansible community.general collection
         run: ansible-galaxy collection install community.general --upgrade
-      
+
       - name: Syntax check
         run: ansible-playbook setup.yml --syntax-check
-      
+
       - name: Run CI tests
         run: ansible-playbook setup.yml --tags ci_test -vv
