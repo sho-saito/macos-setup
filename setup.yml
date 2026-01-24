@@ -11,10 +11,12 @@
         creates: /opt/homebrew/bin/brew
       
     - name: Install CLI tools
-      homebrew:
-        name: "{{ item }}"
+      community.general.homebrew:
+        name:
+          - dockutil
+          - mas
+          - node
         state: present
-      loop: [dockutil, mas]
         
     - name: Install Microsoft Office apps from Mac App Store
       shell: |
@@ -24,11 +26,13 @@
       loop: [462054704, 462058435, 462062816, 1291898086]  # Word, Excel, PowerPoint, Toggl Track
       
     - name: Install applications via Homebrew
-      homebrew_cask:
-        name: "{{ item }}"
+      community.general.homebrew_cask:
+        name:
+          - 1password
+          - kiro-cli
+          - claude
         state: present
       ignore_errors: yes
-      loop: [1password, kiro-cli, claude]
         
     - name: "Download and Install DMG applications"
       shell: |
