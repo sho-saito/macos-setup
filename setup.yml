@@ -93,10 +93,11 @@
         - {path: "/Applications/Notion.app", options: "--position 6"}
         - {path: "/Applications/Notion Calendar.app", options: "--position 7"}
         - {path: "/Applications/Toggl Track.app", options: "--position 8"}
-        - {path: "/Applications/Firefox.app", options: "--position 9"}
-        - {path: "/Applications", options: "--view grid --display folder --sort name --position 10"}
-        - {path: "/System/Applications/Apps.app", options: "--position 11"}
-        - {path: "/System/Applications/System Settings.app", options: "--position 12"}
+        - {path: "/Applications/Slack.app", options: "--position 9"}
+        - {path: "/Applications/Firefox.app", options: "--position 10"}
+        - {path: "/Applications", options: "--view grid --display folder --sort name --position 11"}
+        - {path: "/System/Applications/Apps.app", options: "--position 12"}
+        - {path: "/System/Applications/System Settings.app", options: "--position 13"}
         
     - name: Check if BetterTouchTool is installed
       stat:
