@@ -17,6 +17,7 @@
           - dockutil
           - mas
           - node
+          - gh
         state: present
       tags: ci_test
         
