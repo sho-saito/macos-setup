@@ -67,11 +67,11 @@ ansible-playbook setup.yml --ask-become-pass
 
 ### CLIツール
 
-- **dockutil**, **mas**, **node** - Dock管理、Mac App Store CLI、Node.js
+- **dockutil**, **mas**, **node**, **gh** - Dock管理、Mac App Store CLI、Node.js、GitHub CLI
 
 ### アプリケーション
 
-- **Microsoft Office** (Word, Excel, PowerPoint) + **Toggl Track** - Mac App Store経由
+- **Microsoft Office** (Word, Excel, PowerPoint) + **Toggl Track** + **Slack** - Mac App Store経由
 - **1Password**, **Kiro CLI**, **Claude Desktop** - Homebrew Cask経由
 - **Vivaldi**, **Google Chrome**, **Firefox**, **Discord**, **ChatGPT**, **Notion**, **Notion Calendar**, **Docker**, **DeepL** - DMGダウンロード経由
 - **Visual Studio Code**, **Setapp** - ZIPダウンロード経由
@@ -91,13 +91,13 @@ ansible-playbook setup.yml --ask-become-pass
 
 必須のコマンドラインユーティリティ：
 
-- dockutil、mas、node
+- dockutil、mas、node、gh
 
 ### 2. Mac App Store
 
 App Store経由でインストールするアプリケーション：
 
-- Microsoft Officeソフト群、Toggl Track
+- Microsoft Officeソフト群、Toggl Track、Slack
 
 ### 3. Homebrew Cask（公式サポート確認済み）
 
@@ -128,10 +128,11 @@ Homebrewインストールを公式にサポートしているアプリケーシ
 6. Notion
 7. Notion Calendar
 8. Toggl Track
-9. Firefox
-10. Applications（フォルダ）
-11. Apps
-12. System Settings
+9. Slack
+10. Firefox
+11. Applications（フォルダ）
+12. Apps
+13. System Settings
 
 ## BetterTouchTool設定
 

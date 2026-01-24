@@ -21,12 +21,12 @@
         state: present
       tags: ci_test
         
-    - name: Install Microsoft Office apps from Mac App Store
+    - name: Install Mac App Store applications
       shell: |
         export PATH="/opt/homebrew/bin:$PATH"
         mas install {{ item }}
       become: yes
-      loop: [462054704, 462058435, 462062816, 1291898086]  # Word, Excel, PowerPoint, Toggl Track
+      loop: [462054704, 462058435, 462062816, 1291898086, 803453959]  # Word, Excel, PowerPoint, Toggl Track, Slack
       
     - name: Install applications via Homebrew
       community.general.homebrew_cask:
@@ -93,10 +93,11 @@
         - {path: "/Applications/Notion.app", options: "--position 6"}
         - {path: "/Applications/Notion Calendar.app", options: "--position 7"}
         - {path: "/Applications/Toggl Track.app", options: "--position 8"}
-        - {path: "/Applications/Firefox.app", options: "--position 9"}
-        - {path: "/Applications", options: "--view grid --display folder --sort name --position 10"}
-        - {path: "/System/Applications/Apps.app", options: "--position 11"}
-        - {path: "/System/Applications/System Settings.app", options: "--position 12"}
+        - {path: "/Applications/Slack.app", options: "--position 9"}
+        - {path: "/Applications/Firefox.app", options: "--position 10"}
+        - {path: "/Applications", options: "--view grid --display folder --sort name --position 11"}
+        - {path: "/System/Applications/Apps.app", options: "--position 12"}
+        - {path: "/System/Applications/System Settings.app", options: "--position 13"}
         
     - name: Check if BetterTouchTool is installed
       stat:
