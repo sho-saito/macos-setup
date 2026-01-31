@@ -89,7 +89,7 @@ ansible-playbook setup.yml --ask-become-pass
 
 ### 1. Homebrew（CLIツール）
 
-必須のコマンドラインユーティリティ：
+インストール対象のコマンドラインユーティリティ：
 
 - copilot-cli、dockutil、mas、node、gh
 
