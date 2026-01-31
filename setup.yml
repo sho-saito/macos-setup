@@ -20,6 +20,12 @@
           - gh
         state: present
       tags: ci_test
+      
+    - name: Install Claude CLI
+      shell: curl -fsSL https://claude.ai/install.sh | bash
+      args:
+        creates: ~/.local/bin/claude
+      tags: ci_test
         
     - name: Install Mac App Store applications
       shell: |
