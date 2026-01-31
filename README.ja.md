@@ -67,7 +67,7 @@ ansible-playbook setup.yml --ask-become-pass
 
 ### CLIツール
 
-- **dockutil**, **mas**, **node**, **gh** - Dock管理、Mac App Store CLI、Node.js、GitHub CLI
+- **copilot-cli**, **dockutil**, **mas**, **node**, **gh** - GitHub Copilot CLI、Dock管理、Mac App Store CLI、Node.js、GitHub CLI
 
 ### アプリケーション
 
@@ -89,9 +89,9 @@ ansible-playbook setup.yml --ask-become-pass
 
 ### 1. Homebrew（CLIツール）
 
-必須のコマンドラインユーティリティ：
+インストール対象のコマンドラインユーティリティ：
 
-- dockutil、mas、node、gh
+- copilot-cli、dockutil、mas、node、gh
 
 ### 2. Mac App Store
 

@@ -14,6 +14,7 @@
     - name: Install CLI tools
       community.general.homebrew:
         name:
+          - copilot-cli
           - dockutil
           - mas
           - node
