@@ -67,7 +67,7 @@ ansible-playbook setup.yml --ask-become-pass
 
 ### CLIツール
 
-- **copilot-cli**, **dockutil**, **mas**, **node**, **gh** - GitHub Copilot CLI、Dock管理、Mac App Store CLI、Node.js、GitHub CLI
+- **copilot-cli**, **dockutil**, **mas**, **node**, **gh**, **claude**, **yamllint** - GitHub Copilot CLI、Dock管理、Mac App Store CLI、Node.js、GitHub CLI、Claude CLI、YAMLリンター
 
 ### アプリケーション
 
