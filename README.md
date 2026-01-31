@@ -89,7 +89,7 @@ Different installation methods are used as needed:
 
 ### 1. Homebrew (CLI Tools)
 
-Essential command-line utilities:
+Command-line utilities to install:
 
 - copilot-cli, dockutil, mas, node, gh
 
