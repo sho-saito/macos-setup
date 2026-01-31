@@ -19,6 +19,7 @@
           - mas
           - node
           - gh
+          - yamllint
         state: present
       tags: ci_test
       
