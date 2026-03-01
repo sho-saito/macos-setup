@@ -68,7 +68,6 @@
         - {name: "Firefox", url: "https://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US", app_name: "Firefox.app"}
         - {name: "Docker", url: "https://desktop.docker.com/mac/main/arm64/Docker.dmg", app_name: "Docker.app"}
         - {name: "DeepL", url: "https://www.deepl.com/en/macos/download/DeepL.dmg", app_name: "DeepL.app"}
-        - {name: "Visual Studio Code", url: "https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal-dmg", app_name: "Visual Studio Code.app"}
       tags: ci_test
         
     - name: "Download and Install ZIP applications"
@@ -83,6 +82,7 @@
         cp -R "{{ item.app_name }}" /Applications/
         {% if item.open is defined %}open "/Applications/{{ item.app_name }}"{% endif %}
       loop:
+        - {name: "VSCode", url: "https://update.code.visualstudio.com/latest/darwin-universal/stable", app_name: "Visual Studio Code.app"}
         - {name: "Setapp", url: "https://go.setapp.com/download/client", app_name: "Install Setapp.app", open: true}
       tags: ci_test
         
