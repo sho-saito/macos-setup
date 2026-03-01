@@ -79,7 +79,8 @@
         cd /tmp
         curl -L -o "{{ item.name }}.zip" "{{ item.url }}"
         unzip -o "{{ item.name }}.zip"
-        cp -R "{{ item.app_name }}" /Applications/
+        APP_PATH=$(find . -type d -name "{{ item.app_name }}" | head -1)
+        cp -R "$APP_PATH" /Applications/
         {% if item.open is defined %}open "/Applications/{{ item.app_name }}"{% endif %}
       loop:
         - {name: "VSCode", url: "https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal", app_name: "Visual Studio Code.app"}
