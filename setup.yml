@@ -82,7 +82,7 @@
         cp -R "{{ item.app_name }}" /Applications/
         {% if item.open is defined %}open "/Applications/{{ item.app_name }}"{% endif %}
       loop:
-        - {name: "VSCode", url: "https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal", app_name: "Visual Studio Code.app"}
+        - {name: "VSCode", url: "https://update.code.visualstudio.com/latest/darwin-universal/stable", app_name: "Visual Studio Code.app"}
         - {name: "Setapp", url: "https://go.setapp.com/download/client", app_name: "Install Setapp.app", open: true}
       tags: ci_test
         
@@ -100,12 +100,13 @@
         - {path: "/Applications/Claude.app", options: "--position 5"}
         - {path: "/Applications/Notion.app", options: "--position 6"}
         - {path: "/Applications/Notion Calendar.app", options: "--position 7"}
-        - {path: "/Applications/Toggl Track.app", options: "--position 8"}
-        - {path: "/Applications/Slack.app", options: "--position 9"}
-        - {path: "/Applications/Firefox.app", options: "--position 10"}
-        - {path: "/Applications", options: "--view grid --display folder --sort name --position 11"}
-        - {path: "/System/Applications/Apps.app", options: "--position 12"}
-        - {path: "/System/Applications/System Settings.app", options: "--position 13"}
+        - {path: "/System/Applications/Mail.app", options: "--position 8"}
+        - {path: "/Applications/Toggl Track.app", options: "--position 9"}
+        - {path: "/Applications/Slack.app", options: "--position 10"}
+        - {path: "/Applications/Firefox.app", options: "--position 11"}
+        - {path: "/Applications", options: "--view grid --display folder --sort name --position 12"}
+        - {path: "/System/Applications/Apps.app", options: "--position 13"}
+        - {path: "/System/Applications/System Settings.app", options: "--position 14"}
         
     - name: Check if BetterTouchTool is installed
       stat:
