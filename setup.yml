@@ -14,7 +14,6 @@
     - name: Install CLI tools
       community.general.homebrew:
         name:
-          - copilot-cli
           - dockutil
           - mas
           - node
@@ -42,6 +41,7 @@
           - 1password
           - kiro-cli
           - claude
+          - copilot-cli
         state: present
       ignore_errors: yes
       tags: ci_test
