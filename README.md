@@ -67,7 +67,8 @@ ansible-playbook setup.yml --ask-become-pass
 
 ### CLI Tools
 
-- **copilot-cli**, **dockutil**, **mas**, **node**, **gh**, **claude**, **yamllint** - GitHub Copilot CLI, Dock management, Mac App Store CLI, Node.js, GitHub CLI, Claude CLI, and YAML linter
+- **dockutil**, **mas**, **node**, **gh**, **claude**, **yamllint** - Dock management, Mac App Store CLI, Node.js, GitHub CLI, Claude CLI, and YAML linter
+- **copilot-cli** - GitHub Copilot CLI (via Homebrew Cask)
 
 ### Applications
 
@@ -91,7 +92,7 @@ Different installation methods are used as needed:
 
 Command-line utilities to install:
 
-- copilot-cli, dockutil, mas, node, gh
+- dockutil, mas, node, gh
 
 ### 2. Mac App Store
 

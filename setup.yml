@@ -14,7 +14,6 @@
     - name: Install CLI tools
       community.general.homebrew:
         name:
-          - copilot-cli
           - dockutil
           - mas
           - node
@@ -42,6 +41,7 @@
           - 1password
           - kiro-cli
           - claude
+          - copilot-cli
         state: present
       ignore_errors: yes
       tags: ci_test
@@ -148,17 +148,17 @@
         mode: '0755'
       tags: keyboard
 
-    - name: Install CapsLock<->Ctrl key remapping LaunchAgent
+    - name: Install CapsLock->Ctrl key remapping LaunchAgent
       ansible.builtin.copy:
         src: "{{ playbook_dir }}/configs/keyboard/com.local.KeyRemapping.plist"
         dest: ~/Library/LaunchAgents/com.local.KeyRemapping.plist
         mode: '0644'
       tags: keyboard
 
-    - name: Apply CapsLock<->Ctrl key remapping immediately
+    - name: Apply CapsLock->Ctrl key remapping immediately
       shell: >
         hidutil property --set
-        '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x7000000E0},{"HIDKeyboardModifierMappingSrc":0x7000000E0,"HIDKeyboardModifierMappingDst":0x700000039}]}'
+        '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x7000000E0}]}'
       changed_when: false
       tags: keyboard
 

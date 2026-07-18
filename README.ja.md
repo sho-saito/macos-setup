@@ -67,7 +67,8 @@ ansible-playbook setup.yml --ask-become-pass
 
 ### CLIツール
 
-- **copilot-cli**, **dockutil**, **mas**, **node**, **gh**, **claude**, **yamllint** - GitHub Copilot CLI、Dock管理、Mac App Store CLI、Node.js、GitHub CLI、Claude CLI、YAMLリンター
+- **dockutil**, **mas**, **node**, **gh**, **claude**, **yamllint** - Dock管理、Mac App Store CLI、Node.js、GitHub CLI、Claude CLI、YAMLリンター
+- **copilot-cli** - GitHub Copilot CLI（Homebrew Cask経由）
 
 ### アプリケーション
 
@@ -91,7 +92,7 @@ ansible-playbook setup.yml --ask-become-pass
 
 インストール対象のコマンドラインユーティリティ：
 
-- copilot-cli、dockutil、mas、node、gh
+- dockutil、mas、node、gh
 
 ### 2. Mac App Store
 
