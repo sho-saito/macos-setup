@@ -141,5 +141,26 @@
       when: btt_app.stat.exists
       tags: btt
 
+    - name: Ensure LaunchAgents directory exists
+      ansible.builtin.file:
+        path: ~/Library/LaunchAgents
+        state: directory
+        mode: '0755'
+      tags: keyboard
+
+    - name: Install CapsLock->Ctrl key remapping LaunchAgent
+      ansible.builtin.copy:
+        src: "{{ playbook_dir }}/configs/keyboard/com.local.KeyRemapping.plist"
+        dest: ~/Library/LaunchAgents/com.local.KeyRemapping.plist
+        mode: '0644'
+      tags: keyboard
+
+    - name: Apply CapsLock->Ctrl key remapping immediately
+      shell: >
+        hidutil property --set
+        '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x7000000E0}]}'
+      changed_when: false
+      tags: keyboard
+
     - name: Restart dock
       shell: killall Dock
